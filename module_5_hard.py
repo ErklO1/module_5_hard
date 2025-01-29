@@ -78,6 +78,12 @@ class Video:
         self.adult_mode = adult_mode
         self.bool = bool
 
+    def __eq__(self, other):
+        return self.title == other.title
+
+    def __contains__(self, item):
+        return item in self.title
+
 class User:
     """
        Класс пользователя, содержащий атрибуты:  nickname(имя пользователя, строка),
@@ -88,6 +94,9 @@ class User:
         self.nickname = str(nickname)
         self.password = int(password)
         self.age = int(age)
+
+    def __str__(self):
+        return self.nickname
 
 ur = UrTube()
 v1 = Video('Лучший язык программирования 2024 года', 200)
